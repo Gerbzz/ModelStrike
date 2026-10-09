@@ -1,0 +1,11 @@
+/target/
+*.dem
+*.raw.json
+*.sqlite
+*.sqlite-*
+*.db
+*.mp4
+*.mov
+*.wav
+*.exe
+*.log

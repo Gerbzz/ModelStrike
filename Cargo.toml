@@ -1,0 +1,22 @@
+[package]
+name = "modelstrike"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[features]
+default = []
+native-ui = ["dep:eframe", "dep:rfd"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tempfile = "3"
+eframe = { version = "0.30", default-features = false, features = ["accesskit", "default_fonts", "wgpu", "glow"], optional = true }
+rfd = { version = "0.15", optional = true }
+
+[[bin]]
+name = "modelstrike-ui"
+path = "src/bin/modelstrike-ui.rs"
+required-features = ["native-ui"]
