@@ -54,4 +54,4 @@ ModelStrike does not import or export <code>.vmdl</code>, compile Source 2 asset
 
 Potential next steps include richer primitive and mesh tools, material and collision workflows, and a tested Valve-compatible asset path. These are roadmap ideas, not present capabilities.
 
-This private repository grants no public license for its project source. Third-party crates retain their own licenses.
+This repository grants no public license for its project source. Third-party crates retain their own licenses.
