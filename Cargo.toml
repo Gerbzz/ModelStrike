@@ -6,17 +6,31 @@ publish = false
 
 [features]
 default = []
-native-ui = ["dep:eframe", "dep:rfd"]
+native-ui = ["dep:eframe", "dep:rfd", "dep:png"]
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 sha2 = "0.10"
 tempfile = "3"
+effectcraft-model = { path = "vendor/effectcraft/model" }
+zip = { version = "9", default-features = false }
 eframe = { version = "0.30", default-features = false, features = ["accesskit", "default_fonts", "wgpu", "glow"], optional = true }
 rfd = { version = "0.15", optional = true }
+png = { version = "0.18", optional = true }
 
 [[bin]]
 name = "modelstrike-ui"
 path = "src/bin/modelstrike-ui.rs"
 required-features = ["native-ui"]
+
+[[bin]]
+name = "modelstrike-capture"
+path = "src/bin/modelstrike-capture.rs"
+required-features = ["native-ui"]
+
+[dev-dependencies]
+gltf = { version = "1.4", default-features = false }
+
+[workspace]
+exclude = ["vendor/effectcraft/model", "vendor/effectcraft/geom"]
