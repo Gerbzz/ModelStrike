@@ -6,7 +6,7 @@
 
 ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an OBJ or make a basic mesh, check its dimensions and warnings, edit or transform the geometry, and export a new OBJ while leaving the source alone.
 
-### Highlights
+## Highlights
 
 - Inspect OBJ geometry and source fingerprints.
 - Edit simple triangle meshes and transforms.
@@ -15,15 +15,6 @@ ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an 
 ## Current status
 
 Windows prototype. CLI and native UI code compiled and passed bounded geometry checks, but native pointer use, visible layout, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
-
-## Work with a prop source
-
-1. Open an OBJ or create a cube. The generated cube has triangle faces, UV coordinates, and flat face normals.
-2. Inspect the mesh. ModelStrike reports counts, bounds, warnings, and a SHA-256 fingerprint of the source.
-3. Set a translation in X/Y/Z and a positive uniform scale. Export a new OBJ; the source file is left unchanged.
-4. In the desktop UI, save the controls to a versioned JSON transform project and reopen them later.
-
-The transform rewrites vertex positions and keeps the other OBJ lines, including face and UV records. It does not run a general mesh-repair or material-conversion pipeline. New outputs refuse to overwrite an existing destination.
 
 ## Edit a triangle mesh
 
@@ -41,6 +32,15 @@ Save and reopen an editable `.mstrike` archive. It stores stable IDs, positions,
 | Mesh export <code>.obj</code> or <code>.glb</code> | Separate static triangulated output |
 
 A transform project prefers a source path relative to the project folder when possible. If the OBJ moves or changes, the UI can still reopen saved controls and warn about the source; export remains blocked until the source issue is resolved. Keep the source with the project when moving work.
+
+## Work with a prop source
+
+1. Open an OBJ or create a cube. The generated cube has triangle faces, UV coordinates, and flat face normals.
+2. Inspect the mesh. ModelStrike reports counts, bounds, warnings, and a SHA-256 fingerprint of the source.
+3. Set a translation in X/Y/Z and a positive uniform scale. Export a new OBJ; the source file is left unchanged.
+4. In the desktop UI, save the controls to a versioned JSON transform project and reopen them later.
+
+The transform rewrites vertex positions and keeps the other OBJ lines, including face and UV records. It does not run a general mesh-repair or material-conversion pipeline. New outputs refuse to overwrite an existing destination.
 
 ## Working safely with source geometry
 
