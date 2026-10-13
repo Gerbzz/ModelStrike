@@ -1,8 +1,20 @@
 # ModelStrike
 
-**A native Rust workshop for inspecting OBJ sources and editing triangle meshes.** ModelStrike retains its OBJ inspection and transform utility and adds an editable mesh document for simple prop shapes. It is a local prototype for custom-map prop preparation, not a Source 2 model compiler.
+**by PWDS**
 
-> **Current stage:** The OBJ utility and editable mesh CLI/native UI compile and pass 40 Windows tests with the native UI feature. Independent CLI probes passed for the stated geometry checks and exports. Native pointer interaction, visible layout, accessibility, clean installation, and Valve-compatible asset round trips have not passed acceptance. There is no production release.
+**Start with the shape.**
+
+ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an OBJ or make a basic mesh, check its dimensions and warnings, edit or transform the geometry, and export a new OBJ while leaving the source alone.
+
+### Highlights
+
+- Inspect OBJ geometry and source fingerprints.
+- Edit simple triangle meshes and transforms.
+- Export a new OBJ for further review.
+
+## Current status
+
+Windows prototype. CLI and native UI code compiled and passed bounded geometry checks, but native pointer use, visible layout, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
 
 ## Work with a prop source
 
