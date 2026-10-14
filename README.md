@@ -1,4 +1,8 @@
-# ModelStrike
+<p align="center">
+  <img src="assets/branding/ModelStrike.png" alt="Original ModelStrike nautilus logo" width="160" height="160">
+</p>
+
+<h1 align="center">ModelStrike</h1>
 
 <p align="center">
   <a href="https://prowebdevsolutions.com"><picture>
