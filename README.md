@@ -1,6 +1,11 @@
 # ModelStrike
 
-**by PWDS**
+<p align="center">
+  <a href="https://prowebdevsolutions.com"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/PWDS-logo-orange.svg">
+    <img src="assets/branding/PWDS-logo.png" alt="PWDS company logo" width="120">
+  </picture></a>
+</p>
 
 **Start with the shape.**
 
@@ -84,3 +89,7 @@ ModelStrike does not import or export `.vmdl`, compile Source 2 assets, assign g
 Potential next steps include richer mesh, material and collision workflows and a tested Valve-compatible asset path. These are roadmap ideas, not present capabilities.
 
 This repository grants no public license for its first-party project source. Vendored [EffectCraft source and synthetic test fixtures](ATTRIBUTION.md) retain their MIT OR Apache-2.0 licensing and upstream notices in `vendor/effectcraft/`. Other third-party crates retain their own licenses.
+
+## PWDS brand artwork
+
+The company mark in this masthead is the existing [official PWDS logo](https://github.com/Gerbzz/PWDS-Website/blob/main/public/prowebdevsolutions-logo.png), with the [official orange display asset](https://prowebdevsolutions.com/images/prowebdevsolutions-logo-orange.svg) for dark backgrounds. Any app logo above it remains the original Strike suite artwork.
