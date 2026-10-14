@@ -1,0 +1,21 @@
+{
+  "app": "ModelStrike",
+  "asset": "assets/branding/ModelStrike.png",
+  "method": "Lossless rectangular extraction of original pixels with ImageMagick. No scaling, recoloring, tracing, generation, transparency fabrication or animal changes. Original cream outside rounded corners retained. Labels excluded.",
+  "coordinate_system": "Origin top-left; crop bounds [left, top, right, bottom), right/bottom exclusive.",
+  "source_sha256": "be5c41f093d9b943cd03a6c9669c353b6970d063bfee04d029179e73cf0c4d56",
+  "crop_bounds": [
+    696,
+    0,
+    1352,
+    656
+  ],
+  "dimensions": [
+    656,
+    656
+  ],
+  "sha256": "2f22036c0b6efa43834c7243ab192e03847d525f1d5034dc4982af3441233b91",
+  "decoded_rgb_sha256": "cc6b26995fa5c6535706bcce871a320d915677a7e36d947b33f3e5a66f5cf19f",
+  "pixel_equality_verified": true,
+  "git_blob_sha": "a92c04833c67bf36155c8e1b97c9f6edf5e0b6c7"
+}
