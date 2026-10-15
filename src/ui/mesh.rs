@@ -648,6 +648,18 @@ impl MeshPanel {
                 ui.small("Static triangle mesh · +Y up · metres. Export reports name data losses.");
             });
 
+        egui::TopBottomPanel::bottom("mesh_status").show(ctx, |ui| {
+            ui.add_space(4.0);
+            if let Some(error) = &self.error {
+                ui.colored_label(
+                    egui::Color32::from_rgb(255, 150, 140),
+                    format!("Error: {error}"),
+                );
+            }
+            ui.label(&self.status);
+            ui.add_space(4.0);
+        });
+
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Preview");
             if let Some(session) = &self.session {
@@ -663,18 +675,6 @@ impl MeshPanel {
                 ui.label("Create a cube, plane or cylinder, or import an OBJ / GLB source.");
                 ui.label("The preview shows an isometric wireframe. Vertex coordinates remain authoritative in the inspector.");
             }
-        });
-
-        egui::TopBottomPanel::bottom("mesh_status").show(ctx, |ui| {
-            ui.add_space(4.0);
-            if let Some(error) = &self.error {
-                ui.colored_label(
-                    egui::Color32::from_rgb(255, 150, 140),
-                    format!("Error: {error}"),
-                );
-            }
-            ui.label(&self.status);
-            ui.add_space(4.0);
         });
 
         if ctx.input(|i| i.modifiers.command && i.key_pressed(egui::Key::Z)) {
@@ -883,6 +883,41 @@ fn point_inside_triangle(point: egui::Pos2, corners: [egui::Pos2; 3]) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn native_preview_reserves_space_for_status_bar() {
+        let mut panel = MeshPanel::default();
+        panel
+            .new_primitive(PrimitiveKind::Cube, [1.0, 0.8, 0.6])
+            .unwrap();
+        let ctx = egui::Context::default();
+        let output = ctx.run(
+            egui::RawInput {
+                screen_rect: Some(egui::Rect::from_min_size(
+                    egui::Pos2::ZERO,
+                    egui::vec2(1280.0, 820.0),
+                )),
+                ..Default::default()
+            },
+            |ctx| panel.show(ctx),
+        );
+        let preview_bottom = output
+            .shapes
+            .iter()
+            .find_map(|shape| match &shape.shape {
+                egui::Shape::Rect(rect)
+                    if rect.fill == egui::Color32::from_rgb(22, 28, 35) =>
+                {
+                    Some(rect.rect.bottom())
+                }
+                _ => None,
+            })
+            .expect("mesh preview background should be rendered");
+        assert!(
+            preview_bottom <= 790.0,
+            "mesh preview bottom {preview_bottom} overlaps the status bar"
+        );
+    }
 
     #[test]
     fn native_panel_applies_and_undoes_object_base_color() {
