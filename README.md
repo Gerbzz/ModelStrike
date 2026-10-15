@@ -15,6 +15,12 @@
 
 ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an OBJ or make a basic mesh, check its dimensions and warnings, edit or transform the geometry, and export a new OBJ while leaving the source alone.
 
+## Mesh editor renderer preview
+
+![Actual ModelStrike egui mesh editor renderer with a synthetic cuboid, isometric wireframe preview, selected vertex, and properties panel](docs/screenshots/modelstrike-mesh-editor.png)
+
+This image came from the app's [built-in renderer capture target](src/bin/modelstrike-capture.rs) running a [synthetic `.mstrike` cuboid](docs/screenshots/fixtures/synthetic-cuboid.mstrike). It shows one 1280 × 820 render of the native UI; the lower wireframe edge is clipped at this size. It does not demonstrate pointer interaction, file dialogs, exports, or installation. [Capture provenance](docs/screenshots/README.md) records the source commit, binary and fixture hashes, and the exact commands.
+
 ## Highlights
 
 - Inspect OBJ geometry and source fingerprints.
@@ -23,7 +29,7 @@ ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an 
 
 ## Current status
 
-Windows prototype. CLI and native UI code compiled and passed bounded geometry checks, but native pointer use, visible layout, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
+Windows prototype. CLI and native UI code compiled and passed bounded geometry checks. One renderer view has now been captured and inspected; native pointer use, broader layout behavior, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
 
 ## Edit a triangle mesh
 
@@ -88,7 +94,7 @@ The cube edge and transform values must be finite numbers; edge and scale must b
 
 ## Boundaries and direction
 
-ModelStrike does not import or export `.vmdl`, compile Source 2 assets, assign game materials, rig characters, or verify a prop in Counter-Strike. Face editing operates on triangles; it does not support arbitrary polygons, manifold repair, shaded orbit, or collision checks against other surfaces. The native editor uses a wireframe preview. Its pointer behavior, visible layout, keyboard and screen-reader access, and clean-machine installation have not been verified. Linux, macOS, and mobile platforms have not been tested.
+ModelStrike does not import or export `.vmdl`, compile Source 2 assets, assign game materials, rig characters, or verify a prop in Counter-Strike. Face editing operates on triangles; it does not support arbitrary polygons, manifold repair, shaded orbit, or collision checks against other surfaces. The native editor uses a wireframe preview. One 1280 × 820 renderer view was inspected, including a clipped lower wireframe edge. Pointer behavior, other window sizes, keyboard and screen-reader access, and clean-machine installation have not been verified. Linux, macOS, and mobile platforms have not been tested.
 
 Potential next steps include richer mesh, material and collision workflows and a tested Valve-compatible asset path. These are roadmap ideas, not present capabilities.
 
