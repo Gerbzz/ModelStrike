@@ -339,10 +339,16 @@ impl MeshPanel {
 
     pub(super) fn show(&mut self, ctx: &egui::Context) {
         egui::TopBottomPanel::top("mesh_toolbar").show(ctx, |ui| {
-            ui.add_space(5.0);
+            ui.add_space(7.0);
+            ui.horizontal(|ui| {
+                ui.label(egui::RichText::new("MESH WORKSPACE").strong().color(egui::Color32::from_rgb(113, 213, 216)));
+                ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                    let title = self.path.as_ref().and_then(|path| path.file_name()).map(|name| name.to_string_lossy().into_owned()).unwrap_or_else(|| "Untitled mesh".into());
+                    ui.label(if self.dirty() { format!("{title}  •  Unsaved") } else { title });
+                });
+            });
+            ui.add_space(4.0);
             ui.horizontal_wrapped(|ui| {
-                ui.strong("MESH");
-                ui.separator();
                 ui.menu_button("New mesh", |ui| {
                     ui.strong("Primitive in metres");
                     ui.horizontal(|ui| {
@@ -397,6 +403,7 @@ impl MeshPanel {
                         self.error = result.err();
                     }
                 }
+                ui.separator();
                 let has_doc = self.session.is_some();
                 if ui
                     .add_enabled(has_doc, egui::Button::new("Save  Ctrl+S"))
@@ -414,6 +421,7 @@ impl MeshPanel {
                         self.error = result.err();
                     }
                 }
+                ui.separator();
                 if ui
                     .add_enabled(has_doc, egui::Button::new("Export GLB"))
                     .clicked()
@@ -444,8 +452,8 @@ impl MeshPanel {
             ui.add_space(5.0);
         });
 
-        egui::SidePanel::left("mesh_hierarchy").default_width(220.0).resizable(true).show(ctx, |ui| {
-            ui.heading("Objects & elements");
+        egui::SidePanel::left("mesh_hierarchy").default_width(235.0).resizable(true).show(ctx, |ui| {
+            ui.heading("Scene");
             if let Some(session) = &self.session {
                 let document = session.document();
                 ui.label(format!("{} object(s) · {} triangles", document.objects.len(), document.triangle_count()));
@@ -494,10 +502,10 @@ impl MeshPanel {
         });
 
         egui::SidePanel::right("mesh_inspector")
-            .default_width(255.0)
+            .default_width(285.0)
             .resizable(true)
             .show(ctx, |ui| {
-                ui.heading("Properties");
+                ui.heading("Mesh inspector");
                 if let Some(session) = &self.session {
                     let can_undo = session.can_undo();
                     let can_redo = session.can_redo();
