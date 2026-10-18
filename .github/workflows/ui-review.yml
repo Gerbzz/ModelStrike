@@ -1,0 +1,19 @@
+name: ModelStrike UI review
+
+on:
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 50
+    env:
+      CARGO_BUILD_JOBS: '2'
+      CARGO_INCREMENTAL: '0'
+      CARGO_PROFILE_DEV_DEBUG: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test native editor and geometry
+        run: cargo test --locked --features native-ui
+      - name: Build renderer capture target
+        run: cargo build --locked --features native-ui --bin modelstrike-capture
