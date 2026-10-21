@@ -73,7 +73,11 @@ fn saving_a_reopened_previous_revision_keeps_a_distinct_recovery_archive() {
 fn successive_recovery_files_each_keep_their_own_previous_revision() {
     let dir = tempfile::tempdir().unwrap();
     let original = Document::new_primitive(PrimitiveKind::Cube, [1.0; 3]).unwrap();
-    for name in ["crate.mstrike", "crate.previous.mstrike", "crate.previous.previous.mstrike"] {
+    for name in [
+        "crate.mstrike",
+        "crate.previous.mstrike",
+        "crate.previous.previous.mstrike",
+    ] {
         let iteration = tempfile::tempdir_in(dir.path()).unwrap();
         let path = iteration.path().join(name);
         original.save_new(&path).unwrap();
@@ -81,7 +85,9 @@ fn successive_recovery_files_each_keep_their_own_previous_revision() {
         let mut edited = original.clone();
         let id = edited.objects[0].vertices[0].id;
         edited.move_vertex(id, [-0.4, 0.5, 0.5]).unwrap();
-        edited.save_replace(&path, &Document::archive_sha256(&path).unwrap()).unwrap();
+        edited
+            .save_replace(&path, &Document::archive_sha256(&path).unwrap())
+            .unwrap();
         let backup = Document::previous_path(&path);
         assert_ne!(backup, path, "{name}");
         assert_eq!(std::fs::read(&backup).unwrap(), first, "{name}");
@@ -93,4 +99,3 @@ fn successive_recovery_files_each_keep_their_own_previous_revision() {
         assert_eq!(std::fs::read(&backup).unwrap(), second, "{name}");
     }
 }
-
