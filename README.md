@@ -15,6 +15,12 @@
 
 ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an OBJ or make a basic mesh, check its dimensions and warnings, edit or transform the geometry, and export a new OBJ while leaving the source alone.
 
+## Rust direction and migration status
+
+- **Target:** Develop BlendStrike as a Rust-native 3D modeling application. This repository, its current app and its commands still use the ModelStrike name.
+- **Current implementation:** The [Cargo package](Cargo.toml), [mesh library](src/lib.rs) and [desktop entry point](src/bin/modelstrike-ui.rs) are already Rust, using egui/eframe and selected vendored EffectCraft components for a bounded mesh-editing prototype.
+- **Remaining migration:** Deliver the broader Blender-like modeling target while preserving reusable Rust work and selected licensed source; the bounded prototype is not the finished application. Richer modeling/material workflows, game-asset interoperability, native interaction, other platforms and packaging remain unfinished or unverified.
+
 ## Mesh editor renderer preview
 
 ![Actual ModelStrike egui mesh editor renderer with a synthetic cuboid, isometric wireframe preview, selected vertex, and properties panel](docs/screenshots/modelstrike-mesh-editor.png)
