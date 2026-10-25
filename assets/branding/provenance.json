@@ -1,70 +1,83 @@
 {
   "app": "ModelStrike",
   "asset": "assets/branding/ModelStrike.png",
-  "method": "Measured rounded alpha mask applied to the original 656x656 logo tile, then translated by whole pixels to center its visible bounds. Original visible RGB and masked visible RGBA were verified unchanged.",
-  "source_tile": {
-    "repository": "Gerbzz/ModelStrike",
-    "commit": "88f5ba3a8d7cd15dfe44440d8e89ae1ee0df424b",
-    "path": "assets/branding/ModelStrike.png",
-    "sha256": "2f22036c0b6efa43834c7243ab192e03847d525f1d5034dc4982af3441233b91",
-    "git_blob_sha": "a92c04833c67bf36155c8e1b97c9f6edf5e0b6c7"
-  },
-  "mask_and_centering": {
-    "inset_pixels": 1.5,
-    "masked_alpha_bbox": [
-      18,
-      23,
-      641,
-      631
-    ],
-    "centered_alpha_bbox": [
-      16,
-      24,
-      639,
-      632
-    ],
-    "integer_translation": [
-      -2,
-      1
-    ],
-    "padding_ltrb": [
-      16,
-      24,
-      17,
-      24
-    ],
-    "original_visible_rgb_exact": true,
-    "masked_visible_rgba_exact": true,
-    "transparent_corners": true
-  },
+  "method": "Exact approved 512x512 PNG from user-provided Strike-Logos-GitHub-2026-10-25 handoff. No crop, translation, recoloring or padding changes.",
+  "handoff_file": "approved/ModelStrike/ModelStrike-logo.png",
+  "sha256": "3d6338d9e314369ffe04da23036ef923684f53377e350a36fcd910d26d6f6d83",
   "dimensions": [
-    656,
-    656
+    512,
+    512
   ],
   "mode": "RGBA",
-  "sha256": "f390009db400fb906ba313b94962f56999cbe5073a877cd23c2f21e832b82731",
-  "decoded_rgba_sha256": "59d5173e0eaee73ec47849f643f6519ef17e913768879f8724c434d6a3a5b566",
-  "git_blob_sha": "50c82474b2345ef8c1568433585a32f69afef60e",
-  "tool": "ImageMagick 7.1.2-34 Q16 x64",
-  "original_tile_provenance": {
+  "decoded_rgba_sha256": "276b5626d2be92efd03beeb1a1418151eec3c27f72c706ccb98f89f7e2139569",
+  "previous_provenance": {
     "app": "ModelStrike",
     "asset": "assets/branding/ModelStrike.png",
-    "method": "Lossless rectangular extraction of original pixels with ImageMagick. No scaling, recoloring, tracing, generation, transparency fabrication or animal changes. Original cream outside rounded corners retained. Labels excluded.",
-    "coordinate_system": "Origin top-left; crop bounds [left, top, right, bottom), right/bottom exclusive.",
-    "source_sha256": "be5c41f093d9b943cd03a6c9669c353b6970d063bfee04d029179e73cf0c4d56",
-    "crop_bounds": [
-      696,
-      0,
-      1352,
-      656
-    ],
+    "method": "Measured rounded alpha mask applied to the original 656x656 logo tile, then translated by whole pixels to center its visible bounds. Original visible RGB and masked visible RGBA were verified unchanged.",
+    "source_tile": {
+      "repository": "Gerbzz/ModelStrike",
+      "commit": "88f5ba3a8d7cd15dfe44440d8e89ae1ee0df424b",
+      "path": "assets/branding/ModelStrike.png",
+      "sha256": "2f22036c0b6efa43834c7243ab192e03847d525f1d5034dc4982af3441233b91",
+      "git_blob_sha": "a92c04833c67bf36155c8e1b97c9f6edf5e0b6c7"
+    },
+    "mask_and_centering": {
+      "inset_pixels": 1.5,
+      "masked_alpha_bbox": [
+        18,
+        23,
+        641,
+        631
+      ],
+      "centered_alpha_bbox": [
+        16,
+        24,
+        639,
+        632
+      ],
+      "integer_translation": [
+        -2,
+        1
+      ],
+      "padding_ltrb": [
+        16,
+        24,
+        17,
+        24
+      ],
+      "original_visible_rgb_exact": true,
+      "masked_visible_rgba_exact": true,
+      "transparent_corners": true
+    },
     "dimensions": [
       656,
       656
     ],
-    "sha256": "2f22036c0b6efa43834c7243ab192e03847d525f1d5034dc4982af3441233b91",
-    "decoded_rgb_sha256": "cc6b26995fa5c6535706bcce871a320d915677a7e36d947b33f3e5a66f5cf19f",
-    "pixel_equality_verified": true,
-    "git_blob_sha": "a92c04833c67bf36155c8e1b97c9f6edf5e0b6c7"
+    "mode": "RGBA",
+    "sha256": "f390009db400fb906ba313b94962f56999cbe5073a877cd23c2f21e832b82731",
+    "decoded_rgba_sha256": "59d5173e0eaee73ec47849f643f6519ef17e913768879f8724c434d6a3a5b566",
+    "git_blob_sha": "50c82474b2345ef8c1568433585a32f69afef60e",
+    "tool": "ImageMagick 7.1.2-34 Q16 x64",
+    "original_tile_provenance": {
+      "app": "ModelStrike",
+      "asset": "assets/branding/ModelStrike.png",
+      "method": "Lossless rectangular extraction of original pixels with ImageMagick. No scaling, recoloring, tracing, generation, transparency fabrication or animal changes. Original cream outside rounded corners retained. Labels excluded.",
+      "coordinate_system": "Origin top-left; crop bounds [left, top, right, bottom), right/bottom exclusive.",
+      "source_sha256": "be5c41f093d9b943cd03a6c9669c353b6970d063bfee04d029179e73cf0c4d56",
+      "crop_bounds": [
+        696,
+        0,
+        1352,
+        656
+      ],
+      "dimensions": [
+        656,
+        656
+      ],
+      "sha256": "2f22036c0b6efa43834c7243ab192e03847d525f1d5034dc4982af3441233b91",
+      "decoded_rgb_sha256": "cc6b26995fa5c6535706bcce871a320d915677a7e36d947b33f3e5a66f5cf19f",
+      "pixel_equality_verified": true,
+      "git_blob_sha": "a92c04833c67bf36155c8e1b97c9f6edf5e0b6c7"
+    }
   }
 }
