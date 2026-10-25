@@ -17,3 +17,19 @@ jobs:
         run: cargo test --locked --features native-ui
       - name: Build renderer capture target
         run: cargo build --locked --features native-ui --bin modelstrike-capture
+
+  approved-branding:
+    name: Approved logo asset contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image inspection dependency
+        run: python -m pip install Pillow==12.3.0
+      - name: Verify approved source, derivatives and runtime bindings
+        run: python scripts/check_approved_branding.py
