@@ -2,7 +2,7 @@
   <img src="assets/branding/ModelStrike.png" alt="Approved ModelStrike nautilus logo" width="160" height="160">
 </p>
 
-<h1 align="center">ModelStrike</h1>
+<h1 align="center">BlendStrike</h1>
 
 <p align="center">
   <a href="https://prowebdevsolutions.com"><picture>
@@ -11,9 +11,11 @@
   </picture></a>
 </p>
 
-**Start with the shape.**
+**A full 3D creation application is the target — not the current prototype.**
 
-ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an OBJ or make a basic mesh, check its dimensions and warnings, edit or transform the geometry, and export a new OBJ while leaving the source alone.
+BlendStrike is the intended product name; this repository remains `Gerbzz/ModelStrike`. The application currently launched by this repository is still the preserved ModelStrike triangle-mesh prototype. The full Blender-like application discussed for BlendStrike has **not been implemented**, and the approved-logo update did not perform that migration. No full Blender source foundation has been adopted.
+
+The existing prototype can inspect and reshape simple 3D prop geometry. It remains available for compatibility and reusable work, not as the completed BlendStrike product.
 
 ## Rust direction and migration status
 
@@ -21,21 +23,23 @@ ModelStrike helps creators inspect and reshape simple 3D prop geometry. Open an 
 - **Current implementation:** The [Cargo package](Cargo.toml), [mesh library](src/lib.rs) and [desktop entry point](src/bin/modelstrike-ui.rs) are already Rust, using egui/eframe and selected vendored EffectCraft components for a bounded mesh-editing prototype.
 - **Remaining migration:** Deliver the broader Blender-like modeling target while preserving reusable Rust work and selected licensed source; the bounded prototype is not the finished application. Richer modeling/material workflows, game-asset interoperability, native interaction, other platforms and packaging remain unfinished or unverified.
 
-## Mesh editor renderer preview
+## Historical prototype renderer preview — not the target application
 
-![Actual ModelStrike egui mesh editor renderer with a synthetic cuboid, isometric wireframe preview, selected vertex, and properties panel](docs/screenshots/modelstrike-mesh-editor.png)
+![Historical ModelStrike prototype egui mesh editor renderer with a synthetic cuboid, isometric wireframe preview, selected vertex, and properties panel](docs/screenshots/modelstrike-mesh-editor.png)
 
-This image came from the app's [built-in renderer capture target](src/bin/modelstrike-capture.rs) running a [synthetic `.mstrike` cuboid](docs/screenshots/fixtures/synthetic-cuboid.mstrike). It shows one 1280 × 820 render of the native UI with the whole wireframe visible above the status bar. It does not demonstrate pointer interaction, file dialogs, exports, or installation. [Capture provenance](docs/screenshots/README.md) records the source commit, binary and fixture hashes, and the exact commands.
+This October 15 image shows the legacy prototype, not a new BlendStrike application or the October 25 branding state. It came from the prototype's [built-in renderer capture target](src/bin/modelstrike-capture.rs) running a [synthetic `.mstrike` cuboid](docs/screenshots/fixtures/synthetic-cuboid.mstrike). It shows one 1280 × 820 render of the native UI with the whole wireframe visible above the status bar. It does not demonstrate pointer interaction, file dialogs, exports, or installation. [Capture provenance](docs/screenshots/README.md) records the source commit, binary and fixture hashes, and the exact commands.
 
-## Highlights
+## Preserved prototype capabilities
 
 - Inspect OBJ geometry and source fingerprints.
 - Edit simple triangle meshes and transforms.
 - Export a new OBJ for further review.
 
-## Current status
+## Current implementation status
 
-Windows prototype. CLI and native UI code compiled and passed bounded geometry checks. One renderer view has now been captured and inspected; native pointer use, broader layout behavior, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
+The broader foundation migration is still missing. The [source migration boundary](docs/SOURCE_MIGRATION_BOUNDARY.md) distinguishes a source-preserving Blender foundation from extending this custom editor; neither a full Blender fork nor a Blender-backed template has been adopted. The intended Rust migration must preserve real application workflows rather than present this prototype as equivalent.
+
+The retained Windows prototype: CLI and native UI code compiled and passed bounded geometry checks. One renderer view has now been captured and inspected; native pointer use, broader layout behavior, accessibility, clean installation, and Valve-compatible asset round trips remain unverified. This is not a Source 2 model compiler.
 
 ## Edit a triangle mesh
 
@@ -71,7 +75,7 @@ The transform project stores controls separately from the OBJ. It compares the s
 
 The mesh import path checks the same OBJ bytes it passes to the importer. Unsupported concave, self-intersecting, nonplanar, collinear, and float32-collapsed faces are rejected instead of silently fan-triangulated; individual OBJ faces are limited to 1,024 corners. GLB export rejects geometry that would lose required shape fidelity at float32 precision. Independent probes confirmed these rejections leave source files and occupied destinations unchanged for the tested fixtures. These checks do not establish support for arbitrary OBJ meshes or large scenes.
 
-## Build and run
+## Run the preserved prototype (not the target application)
 
 Use Windows and a Rust toolchain that supports edition 2024 and the versions in `Cargo.lock`. The desktop application is first-party Rust with egui/eframe and native library dependencies. The native-feature test checkpoint used `--locked --offline`; a clean-machine build has not been verified.
 
