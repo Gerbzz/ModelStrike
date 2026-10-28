@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/branding/ModelStrike.png" alt="Approved ModelStrike nautilus logo" width="160" height="160">
+  <img src="docs/branding/ModelStrike-website.webp" alt="BlendStrike nautilus logo" width="160" height="160">
 </p>
 
 <h1 align="center">BlendStrike</h1>

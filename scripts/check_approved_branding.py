@@ -13,7 +13,11 @@ class ApprovedBranding(unittest.TestCase):
         self.assertEqual(sha256(p.read_bytes()).hexdigest(), APPROVED)
         with Image.open(p) as image:
             self.assertEqual(image.size, (512,512))
-        self.assertIn('assets/branding/' + APP + '.png', (ROOT/'README.md').read_text(encoding="utf-8"))
+        website = ROOT / 'docs/branding/ModelStrike-website.webp'
+        self.assertEqual(sha256(website.read_bytes()).hexdigest(), '037027d2122253231dceef3b46ae2b34a635c56515d88073dbd920709a4ee152')
+        with Image.open(website) as image:
+            self.assertEqual(image.size, (512, 512))
+        self.assertIn('src="docs/branding/ModelStrike-website.webp"', (ROOT/'README.md').read_text(encoding="utf-8"))
         self.assertEqual(json.loads((p.parent/'provenance.json').read_text(encoding="utf-8"))['sha256'], APPROVED)
     def test_runtime_derivative_and_binding(self):
         source = Image.open(ROOT/'assets/branding'/(APP+'.png')).convert('RGBA')
